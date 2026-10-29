@@ -29,7 +29,7 @@ def count():
 
 @app.get('/song')
 def songs():
-    return jsonify([clean(s) for s in db.songs.find({})])
+    return jsonify(songs=[clean(s) for s in db.songs.find({})])
 
 @app.get('/song/<int:id>')
 def get_song(id):

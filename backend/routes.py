@@ -54,7 +54,7 @@ def put_song(id):
     s={'id':id,'title':s['title'],'lyrics':s['lyrics']}
     if not db.songs.replace_one({'id':id},s).matched_count:
         return jsonify(message='song with id not found'),404
-    return jsonify(s)
+    return jsonify(s),201
 
 @app.delete('/song/<int:id>')
 def delete_song(id):
